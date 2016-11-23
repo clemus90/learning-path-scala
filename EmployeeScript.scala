@@ -3,3 +3,5 @@ println(ada.firstName)
 
 ada.lastName = "Byron, Countess of Lovelace"
 println(ada.lastName)
+
+val dennis = new Employee(lastName="Ritchie", firstName="Dennis")
