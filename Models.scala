@@ -21,3 +21,7 @@ if(title.contains("Senior") || title.contains("Junior"))
   }
 }
 // Warning: Scala Programmers don't like vars
+
+class Department (val name:String)
+
+class Manager(firstName:String, lastName:String, title:String, val department:Department) extends Employee(firstName, lastName, title)

@@ -26,3 +26,21 @@ try{
 } finally {
   println("Continuing with our program")
 }
+
+val mathematics = new Department("Mathematics")
+val alan:Manager = new Manager("Alan", "Turing", "Mathematician, Logician", mathematics)
+println(alan.department.name)
+
+val alanEmployee:Employee = alan
+
+print(ada.firstName)
+print(newAda.firstName)
+print(dennis.firstName)
+print(alan.firstName)
+print(alanEmployee.firstName)
+
+def extractFirstName(e:Employee) = e.firstName
+
+println(extractFirstName(ada))
+println(extractFirstName(dennis))
+println(extractFirstName(alan))
