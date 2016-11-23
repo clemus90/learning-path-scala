@@ -1,8 +1,13 @@
 import scala.beans.BeanProperty
 
+abstract class Person {
+  def firstName: String
+  def lastName: String
+}
+
 class Employee(@BeanProperty val firstName:String,
                @BeanProperty val lastName:String,
-               val title:String = "Programmer"){
+               val title:String = "Programmer") extends Person{
 
  require(firstName.nonEmpty, "First Name cannot be empty")
  require(lastName.nonEmpty, "Last Name cannot be empty")

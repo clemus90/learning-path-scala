@@ -83,3 +83,6 @@ println(name)
 
 val Department(name2) = toys2
 println(name)
+
+val alanPerson:Person = alan
+val adaPerson:Person = newAda
