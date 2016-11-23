@@ -1,2 +1,5 @@
-class Employee(val firstName:String, var lastName:String)
+import scala.beans.BeanProperty
+
+class Employee(@BeanProperty val firstName:String,
+               @BeanProperty var lastName:String)
 // Warning: Scala Programmers don't like vars
