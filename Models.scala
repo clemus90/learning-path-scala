@@ -19,6 +19,26 @@ if(title.contains("Senior") || title.contains("Junior"))
            title:String = this.title ) = {
     new Employee(firstName, lastName, title)
   }
+
+  override def equals(x:Any):Boolean = {
+    if (!x.isInstanceOf[Employee]) false
+    else {
+      val other = x.asInstanceOf[Employee]
+      other.firstName == this.firstName &&
+      other.lastName == this.lastName &&
+      other.title == this.title
+    }
+  }
+
+  override def hashCode:Int = {
+    var result = 19
+    result = 31 * result + firstName.hashCode
+    result = 31 * result + lastName.hashCode
+    result = 31 * result + title.hashCode
+    result
+  }
+
+  override def toString:String = s"Employee($firstName, $lastName, $title)"
 }
 // Warning: Scala Programmers don't like vars
 
@@ -27,7 +47,7 @@ class Department (val name:String)
 class Manager(firstName:String, lastName:String, title:String, val department:Department) extends
   Employee(firstName, lastName, title) {
     override def fullName = s"$firstName $lastName, ${department.name} Manager"
-    def copy(firstName:String = this.firstName, lastName:String = this.lastName,
+    override def copy(firstName:String = this.firstName, lastName:String = this.lastName,
       title:String = this.title ) = {
         new Manager(firstName, lastName, title, new Department("Toys"))
       }

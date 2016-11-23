@@ -33,11 +33,11 @@ println(alan.department.name)
 
 val alanEmployee:Employee = alan
 
-print(ada.firstName)
-print(newAda.firstName)
-print(dennis.firstName)
-print(alan.firstName)
-print(alanEmployee.firstName)
+println(ada.firstName)
+println(newAda.firstName)
+println(dennis.firstName)
+println(alan.firstName)
+println(alanEmployee.firstName)
 
 def extractFirstName(e:Employee) = e.firstName
 
@@ -52,3 +52,16 @@ println(alan.fullName)
 println(alanEmployee.fullName)
 
 val alanNewJob = alan.copy(title="Supreme Encryption Specialist")
+
+val anotherAda = new Employee("Ada", "Byron, Countess of Lovelace")
+val evenAnotherAda = anotherAda
+
+println(newAda == anotherAda)
+println(newAda != anotherAda)
+println(newAda eq anotherAda)
+println(evenAnotherAda eq anotherAda)
+
+println(newAda.hashCode == anotherAda.hashCode)
+println(ada.hashCode == newAda.hashCode)
+
+println(ada)
