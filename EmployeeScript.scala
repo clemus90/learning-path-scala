@@ -11,3 +11,18 @@ println(s"The last name is ${dennis.lastName}")
 println(ada.fullName)
 println(newAda.fullName)
 println(dennis.fullName)
+
+try{
+  new Employee("Bono", "", "Singer")
+} catch {
+  case iae: IllegalArgumentException => println(iae.getMessage)
+} finally {
+  println("Continuing with our program")
+}
+try{
+  new Employee("Linus", "Torvalds", "Senior C Programmer")
+} catch {
+  case iae: IllegalArgumentException => println(iae.getMessage)
+} finally {
+  println("Continuing with our program")
+}
