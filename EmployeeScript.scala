@@ -65,3 +65,21 @@ println(newAda.hashCode == anotherAda.hashCode)
 println(ada.hashCode == newAda.hashCode)
 
 println(ada)
+
+val toys = Department("Toys")
+println(toys)
+val toys2 = Department("Toys")
+println(toys == toys2)
+println(toys.hashCode == toys2.hashCode)
+val hardware = toys.copy(name="Hardware")
+println(hardware)
+
+val name = toys match {
+            case Department(n) => n
+            case _ => "Unknown"
+          }
+
+println(name)
+
+val Department(name2) = toys2
+println(name)
