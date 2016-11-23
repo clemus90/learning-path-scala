@@ -44,3 +44,11 @@ def extractFirstName(e:Employee) = e.firstName
 println(extractFirstName(ada))
 println(extractFirstName(dennis))
 println(extractFirstName(alan))
+
+println(ada.fullName)
+println(newAda.fullName)
+println(dennis.fullName)
+println(alan.fullName)
+println(alanEmployee.fullName)
+
+val alanNewJob = alan.copy(title="Supreme Encryption Specialist")

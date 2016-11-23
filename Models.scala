@@ -24,4 +24,11 @@ if(title.contains("Senior") || title.contains("Junior"))
 
 class Department (val name:String)
 
-class Manager(firstName:String, lastName:String, title:String, val department:Department) extends Employee(firstName, lastName, title)
+class Manager(firstName:String, lastName:String, title:String, val department:Department) extends
+  Employee(firstName, lastName, title) {
+    override def fullName = s"$firstName $lastName, ${department.name} Manager"
+    def copy(firstName:String = this.firstName, lastName:String = this.lastName,
+      title:String = this.title ) = {
+        new Manager(firstName, lastName, title, new Department("Toys"))
+      }
+  }
