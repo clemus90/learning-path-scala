@@ -1,4 +1,4 @@
-class Employee(firstName:String, middleName:Option[String], lastName:String){
+class Employee(val firstName:String, val middleName:Option[String], val lastName:String){
   def this(firstName:String, middleName:String, lastName:String) =
     this(firstName, Some(middleName), lastName)
   def this(firstName:String, lastName:String) =
@@ -19,4 +19,21 @@ object Options extends App {
   val carHoare = new Employee("Charles","Antony", "Hoare")
   val bjarne = new Employee("Bjarne", "Stroustrap")
   val strangePerson = new Employee
+
+  println(middleName.get)
+  println(noMiddleName.getOrElse("No middle name"))
+  println(carHoare.middleName.getOrElse("No middle name"))
+  println(bjarne.middleName.getOrElse("No middle name"))
+  println(strangePerson.middleName.getOrElse("No middle name"))
+
+  def peelTheMiddleName(x:Option[String]):String = {
+    x match {
+      case Some(name) => name
+      case None => "No middle name"
+    }
+  }
+
+  println(peelTheMiddleName(carHoare.middleName))
+  println(peelTheMiddleName(bjarne.middleName))
+  println(peelTheMiddleName(strangePerson.middleName))
 }
