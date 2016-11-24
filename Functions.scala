@@ -1,10 +1,10 @@
 object Functions extends App {
-  val f1: Int => Int = (x:Int) => x + 1
+  val f1 = (x:Int) => x + 1
 
-  val f0: () => Int = () = 1
+  val f0 = () => 1
   }
 
-  val f2 (Int, String) => String = (x:Int, y:String) => y + x
+  val f2 = (x:Int, y:String) => y + x
   }
 
   println(f1(3))
