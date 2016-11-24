@@ -11,3 +11,8 @@ val managerBox = Box[Employee](new Manager("Kathy", "Sierra", "Programmer",
 val doubleBoxBox = Box(Box(4.0)) // Box[Box[Double]]
 val doubleResult:Double = doubleBoxBox.t.t
 println(doubleResult)
+
+val intBox4 = Box(200)
+val coupleIntStringBox:Box[Couple[Int, String]] = intBox4.coupleWith("Scala")
+println(coupleIntStringBox.t.first)
+println(coupleIntStringBox.t.second)
