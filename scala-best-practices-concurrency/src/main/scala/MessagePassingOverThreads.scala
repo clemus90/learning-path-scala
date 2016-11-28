@@ -1,6 +1,6 @@
 import java.util.concurrent.{LinkedBlockingQueue, ThreadPoolExecutor, TimeUnit}
 
-import akka.actor.Actor
+import akka.actor.{Actor, ActorSystem, Props}
 
 object MessagePassingOverThreads {
 
@@ -40,11 +40,25 @@ object MessagePassingOverThreads {
   }
 
   class Test2 extends Actor {
-    
+    override def receive = {
+      case str: String => {
+        Thread.sleep(1000)
+        println(s"${Thread.currentThread().getName} ${str.toLowerCase}")
+      }
+    }
+  }
+
+  def actors() = {
+    val system = ActorSystem("Actors")
+    val t2 = system.actorOf(Props[Test2])
+    t2 ! message1
+    println(s"${Thread.currentThread().getName} Sent message to actor")
+    t2 ! message2
   }
 
   def main(args: Array[String]): Unit = {
     //threadInvocations()
-    threadPolling()
+    //threadPolling()
+    actors()
   }
 }
